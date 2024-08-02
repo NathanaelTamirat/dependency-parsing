@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-CS224N 2021-2022: Homework 3
-parser_utils.py: Utilities for training the dependency parser.
-Sahil Chopra <schopra8@stanford.edu>
-"""
 
 import time
 import os
 import logging
 from collections import Counter
-from . general_utils import get_minibatches
+
+from .general_utils import get_minibatches
+
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from parser_transitions import minibatch_parse
 
 from tqdm import tqdm
@@ -32,6 +32,7 @@ class Config(object):
     use_pos = True
     use_dep = True
     use_dep = use_dep and (not unlabeled)
+
     data_path = './data'
     train_file = 'train.conll'
     dev_file = 'dev.conll'
